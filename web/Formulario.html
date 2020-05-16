@@ -1,0 +1,122 @@
+<html> 
+	<head>
+		<title>Formulario HTML</title>
+		<script type="text/javascript">
+		
+			function validateData(){
+			
+				if(document.getElementById("txtName").value == ""){
+				alert("Ingresar nombre");
+				return false;
+				}
+				
+				if(document.getElementById("numAge").value == ""){
+				alert("Ingresar edad");
+				return false;
+				}
+				
+				var genre = document.getElementsByName("genre");
+				if(!genre[0].checked){
+					if(!genre[1].checked){
+					alert("Seleccionar género");
+					return false;
+					}
+				}
+				
+				var sports = document.getElementsByName("sports");
+				var cant=0;
+				for(var i=0;i<sports.length;i++){
+					if(sports[i].checked){
+						cant++;
+					}
+				}
+				if(cant==0){
+					alert("Seleccionar por lo menos un deporte");
+					return false;
+				}
+				
+				var provincia = document.getElementById("slProvincia").selectedIndex;
+				if(provincia == 0){
+					alert("Seleccionar provincia");
+					return false;
+				}
+				
+				var datos = document.getElementById("txtOthers").value;
+				if(datos.trim() == ""){
+					alert("Ingresar otros datos");
+					return false;
+				}
+				
+				return true;
+				
+			}
+
+		</script>
+	</head>
+
+	<body>
+			<form>
+			<h1>Datos personales</h1>
+			<table border = "1">
+			
+				<tr>
+					<td>Nombre</td>
+					<td>
+						<input type="text" id="txtName" name = "name" placeholder="Ingresar nombre" /> 
+					</td>
+				</tr>
+				<tr>
+					<td>Edad</td>
+					<td>
+						<input type="number" id="numAge" name = "age" min="0" max = "100"  style="width:173px" placeholder="Ingresar edad" /> 
+					</td>
+				</tr>
+				<tr>
+					<td>Género</td>
+					<td>
+						<input type="radio" id="rbWomen" name = "genre" >Femenino</input> 
+						<input type="radio" id="rbMen" name = "genre">Masculino</input> 
+					</td>
+				</tr>
+				<tr>
+					<td>Deporte favorito</td>
+					<td>
+						<input type="checkbox" id="cbFutbol" name="sports">Fútbol</input>
+						<input type="checkbox" id="cbBasket" name="sports">Basketball</input>
+						<input type="checkbox" id="cbBaseball" name="sports">Baseball</input>
+						<input type="checkbox" id="cbCiclismo" name="sports">Ciclismo</input>
+						<input type="checkbox" id="cbTennis" name="sports">Tennis</input>
+						<input type="checkbox" id="cbOtro" name="sports">Otros</input>
+					</td>
+				</tr>
+				<tr>
+					<td>Provincia</td>
+					<td>
+					<select id="slProvincia" name = "provincia" >
+							<option value = "0">--Seleccione opción---</option>
+							<option value = "1">San José</option>
+							<option value = "2">Alajuela</option>
+							<option value = "3">Cartago</option>
+							<option value = "4">Heredia</option>
+							<option value = "5">Guanacaste</option>
+							<option value = "6">Puntarenas</option>
+							<option value = "7">Limón</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Otros datos</td>
+					<td>
+						<textarea id="txtOthers" name="others" value="" rows="5" cols="70">
+						</textarea>
+					</td>
+				</tr>
+			</table>
+			
+			<input type="submit" value="Enviar" onclick="return validateData()"/>
+			<input type="reset" value="Limpiar"/>
+			
+		</form>
+</body>
+
+</html>
