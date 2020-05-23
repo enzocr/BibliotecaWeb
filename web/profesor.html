@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+        function validarDatos(){
+       //     alert("Hay que validar datos");
+            return true;
+        }    
+        
+        
+        </script>
+    </head>
+    <body>
+        <form method="get" action="ServletProfesor">
+            <h1>Datos del profesor</h1>
+            <table border="1">
+                <tr>
+                    <td>Nombre</td>
+                    <td>
+                        <input type="text" id="txtNombre" name="nombre"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cedula</td>
+                    <td>
+                        <input type="text" id="txtCedula" name="cedula"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Salario</td>
+                    <td>
+                        <input type="number" step="0.01" id="txtSalario" name="salario"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Escuela</td>
+                    <td>
+                        <input type="text" id="txtEscuela" name="escuela"/>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <input type="submit" onclick="return validarDatos();"/>
+        </form>
+    </body>
+</html>

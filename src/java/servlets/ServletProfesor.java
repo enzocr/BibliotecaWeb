@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  * @author Enzo Quartino Zamora
  * <github.com/enzocr || email: enzoquartino@gmail.com>
  */
-public class ServletLogIn extends HttpServlet {
+public class ServletProfesor extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,18 +31,37 @@ public class ServletLogIn extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("user");
-        String password = request.getParameter("password");
+
+        int cedula = Integer.parseInt(request.getParameter("cedula"));
+        String nombre = request.getParameter("nombre");
+        Double salario = Double.parseDouble(request.getParameter("salario"));
+        String escuela = request.getParameter("escuela");
+
         HttpSession session = request.getSession();
-        if (user.equals("enzo")) {
-            if (password.equals("enzo")) {
-                session.setAttribute("nombreUsuario", user);
-                response.sendRedirect("inicio.jsp");
+
+        try (PrintWriter out = response.getWriter()) {
+
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ServletProfesor</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ServletProfesor at " + request.getContextPath() + "</h1>");
+
+            if (session.getAttribute("nombreUsuario") == null) {
+                out.println("<p>Sesion invalida, vuelva a logearse</p");
+                out.println("<a href=\"logIn.html\"> Ir a LogIn</a>");
             } else {
-                response.sendRedirect("logInErroneo.html");
+
+                out.println("<p> Nombre: " + nombre + "</p>");
+                out.println("<p> Cédula: " + cedula + "</p>");
+                out.println("<p> Salario: " + salario + "</p>");
+                out.println("<p> Escuela: " + escuela + "</p>");
             }
-        } else {
-            response.sendRedirect("logInErroneo.html");
+
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

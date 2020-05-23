@@ -6,19 +6,17 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Enzo Quartino Zamora
  * <github.com/enzocr || email: enzoquartino@gmail.com>
  */
-public class ServletLogIn extends HttpServlet {
+public class ServletMenu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,18 +29,24 @@ public class ServletLogIn extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("user");
-        String password = request.getParameter("password");
-        HttpSession session = request.getSession();
-        if (user.equals("enzo")) {
-            if (password.equals("enzo")) {
-                session.setAttribute("nombreUsuario", user);
-                response.sendRedirect("inicio.jsp");
-            } else {
-                response.sendRedirect("logInErroneo.html");
-            }
-        } else {
-            response.sendRedirect("logInErroneo.html");
+        response.setContentType("text/html;charset=UTF-8");
+        Integer boton = Integer.parseInt(request.getParameter("boton"));
+        switch (boton) {
+            case 1:
+                response.sendRedirect("profesor.html");
+                break;
+            case 2:
+                response.sendRedirect("formulario.html");
+                break;
+            case 3:
+                response.sendRedirect("primos.jsp");
+                break;
+            case 4:
+                response.sendRedirect("calculaPromedio.jsp");
+                break;
+            case 5:
+                response.sendRedirect("mantProfesor.html");
+                break;
         }
     }
 

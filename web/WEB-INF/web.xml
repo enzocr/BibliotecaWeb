@@ -4,16 +4,32 @@
         <servlet-name>ServletLogIn</servlet-name>
         <servlet-class>servlets.ServletLogIn</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletProfesor</servlet-name>
+        <servlet-class>servlets.ServletProfesor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletMenu</servlet-name>
+        <servlet-class>servlets.ServletMenu</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletLogIn</servlet-name>
         <url-pattern>/ServletLogIn</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletProfesor</servlet-name>
+        <url-pattern>/ServletProfesor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletMenu</servlet-name>
+        <url-pattern>/ServletMenu</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            1
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>LogIn.html</welcome-file>
+        <welcome-file>logIn.html</welcome-file>
     </welcome-file-list>
 </web-app>
