@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <script type="text/javascript">
-            function accion(var valor) {
+            function accion() {
                 document.getElementById("oculto").value = valor;
             }
 

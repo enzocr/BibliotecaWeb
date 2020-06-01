@@ -45,7 +45,7 @@ public class ServletMenu extends HttpServlet {
                 response.sendRedirect("calculaPromedio.jsp");
                 break;
             case 5:
-                response.sendRedirect("mantProfesor.html");
+                response.sendRedirect("mantProfesor.jsp");
                 break;
         }
     }

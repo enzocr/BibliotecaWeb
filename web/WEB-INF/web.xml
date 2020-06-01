@@ -12,6 +12,10 @@
         <servlet-name>ServletMenu</servlet-name>
         <servlet-class>servlets.ServletMenu</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletMantProfesor</servlet-name>
+        <servlet-class>servlets.ServletMantProfesor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletLogIn</servlet-name>
         <url-pattern>/ServletLogIn</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>ServletMenu</servlet-name>
         <url-pattern>/ServletMenu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletMantProfesor</servlet-name>
+        <url-pattern>/ServletMantProfesor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
